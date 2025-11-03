@@ -1,6 +1,9 @@
 package controleur;
 import com.sun.media.jfxmedia.logging.Logger;
 import architecture.Controleur;
+import controleur.commande.CommandeChangerFond;
+import controleur.commande.CommandeInsererElement;
+import controleur.commande.CommandeInsererEmoticon;
 import donnee.Exporteur;
 import modele.Theme.THEME;
 import modele.CarteDeSouhait;
@@ -33,16 +36,16 @@ public class ControleurCarteditor extends Controleur {
     }
 
     public void notifierClicCarte(double x, double y) {
+    	
+    	CommandeInsererElement commande = new CommandeInsererElement(itemChoisi, x, y, carteDeSouhait);
+    	commande.executer();
+    	
+    	CommandeInsererEmoticon commande2 = new CommandeInsererEmoticon(emoticonChoisi, x, y, carteDeSouhait);
+    	commande2.executer();
            
-        if (itemChoisi != null) {
-            VueCarteditor.getInstance().afficherItem(itemChoisi, x, y);
-            carteDeSouhait.ajouterElement(new Decoration(itemChoisi, x, y));
-        }
+ 
 
-        if (emoticonChoisi != null) {
-            VueCarteditor.getInstance().afficherEmoticon(emoticonChoisi, x, y);
-            carteDeSouhait.ajouterEmoticon(new Emoticon(emoticonChoisi, x, y));
-        }
+       
             
     }
 
@@ -65,10 +68,12 @@ public class ControleurCarteditor extends Controleur {
         
 
     public void notifierChoixFond(FOND fondChoisi) {
+    	
+    	CommandeChangerFond commande = new CommandeChangerFond(fondChoisi, carteDeSouhait);
+    	commande.executer();
 
     	
-        VueCarteditor.getInstance().afficherFond(fondChoisi);
-        carteDeSouhait.setFond(new Fond(fondChoisi));
+ 
     }
 
 	public void notifierChoixTheme(THEME themeChoisi) {
