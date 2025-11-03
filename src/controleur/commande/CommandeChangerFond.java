@@ -17,7 +17,7 @@ public class CommandeChangerFond extends Commande  {
 
 	@Override
 	public void executer() {
-		
+		//appel
 	       VueCarteditor.getInstance().afficherFond(fondChoisi);
 	        carteDeSouhait.setFond(new Fond(fondChoisi));		
 	}
