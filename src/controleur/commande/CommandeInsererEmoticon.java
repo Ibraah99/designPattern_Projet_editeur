@@ -11,11 +11,11 @@ public class CommandeInsererEmoticon extends Commande {
 	protected double y;
 	protected EMOTICON emoticonChoisi;
 	protected CarteDeSouhait carteDeSouhait;
-	public CommandeInsererEmoticon( EMOTICON emoticon ,double x, double y, CarteDeSouhait carteDeSouhait) {
+	public CommandeInsererEmoticon( EMOTICON emoticon ,double x, double y, CarteDeSouhait carte) {
 		this.x = x;
 		this.y = y;
 		this.emoticonChoisi = emoticon;
-		this.carteDeSouhait = carteDeSouhait;
+		this.carteDeSouhait = carte;
 		
 	}
 
