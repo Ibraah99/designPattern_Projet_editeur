@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="fenetre" prefHeight="743.0" prefWidth="1294.0" stylesheets="@decoration/jardinator.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane id="espace-travail" layoutX="-4.8" layoutY="95.2" prefHeight="652.0" prefWidth="1301.0" style="-fx-background-color: #40a9ff;" styleClass="action-choisir-terrain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <AnchorPane id="actions" layoutX="23.0" layoutY="14.0" prefHeight="119.0" prefWidth="462.0">
+               <children>
+                  <Button layoutX="20.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="RECOMMENCER" textOverrun="CLIP" />
+                  <Button id="action-undo" fx:id="actionUndo" layoutX="20.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="UNDO" textOverrun="CLIP" />
+                  <Button id="action-sauvegarder" fx:id="actionSauvegarder" layoutX="237.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="SAUVEGARDER" textOverrun="CLIP">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="12.0" />
+                     </font></Button>
+                  <Button id="action-redo" fx:id="actionRedo" layoutX="237.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="REDO" textOverrun="CLIP" />
+               </children>
+               
+            </AnchorPane>
+            <Pane layoutX="6.0" layoutY="150.0" prefHeight="501.0" prefWidth="1207.0" AnchorPane.leftAnchor="6.0">
+               <children>
+                  <Pane id="elements" layoutX="15.0" layoutY="11.0" prefHeight="468.0" prefWidth="462.0">
+                     <children>
+                        <GridPane id="elements-grille" layoutX="24.0" layoutY="318.0" prefHeight="113.0" prefWidth="414.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button id="action-choisir-fond1" fx:id="choisirCarotte1" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP">
+                                 <graphic>
+                                    <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/fond/fond1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-fond2" fx:id="choisirRadis1" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="53.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/fond/fond2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-fond3" fx:id="choisirChou1" mnemonicParsing="false" prefHeight="140.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/fond/fond3.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-fond4" fx:id="choisirOignon1" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3">
+                                 <graphic>
+                                    <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/fond/fond4.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane id="elements-grille" layoutX="24.0" layoutY="31.0" prefHeight="225.0" prefWidth="414.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button id="action-choisir-dragon" fx:id="choisirDragon" mnemonicParsing="false" prefHeight="119.0" prefWidth="106.0" textOverrun="CLIP">
+                                 <graphic>
+                                    <ImageView id="action-choisir-dragon" fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/emoticon/dragon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-fleur" fx:id="choisirFleur" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="81.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/emoticon/fleur.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-oiseau" fx:id="choisirOiseau" mnemonicParsing="false" prefHeight="140.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/emoticon/oiseau.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-emoji" fx:id="choisirEmoji" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3">
+                                 <graphic>
+                                    <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/emoticon/emoji.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-tshirt" fx:id="choisirTShirt" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/elements/tshirt.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-soulier" fx:id="choisirSoulier" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/elements/soulier.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-timbre" fx:id="choisirTimbre" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/elements/timbre.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="action-choisir-voeux" fx:id="choisirVoeux" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@decoration/elements/voeux.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children></Pane>
+                  <AnchorPane id="carte-contour" fx:id="carteContour" layoutX="493.0" layoutY="10.0" prefHeight="468.0" prefWidth="702.0">
+                     <children>
+                        <Rectangle id="fond-carte" fx:id="fondCarte" arcHeight="5.0" arcWidth="5.0" fill="#5b4f45" height="468.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent;" width="702.0" />
+                        <TextArea id="action-modifier-texte" fx:id="actionModifierTexte" layoutX="42.0" layoutY="116.0" prefHeight="306.0" prefWidth="264.0" promptText="Votre message ici..." style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: black; -fx-font-size: 26px; -fx-font-family: 'Berlin Sans FB';" wrapText="true" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="116.0" />
+                       
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+            <HBox id="choix-terrain" fx:id="choixTerrain" layoutX="497.0" layoutY="23.0" prefHeight="43.0" prefWidth="702.0" spacing="10.0">
+               <children>
+                  <Button id="action-choisir-theme1" fx:id="actionChoisirFondMer" mnemonicParsing="false" prefHeight="43.0" prefWidth="170.0" styleClass="action-choisir-terrain" text="Sombre" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="action-choisir-theme2" fx:id="actionChoisirFondIle" mnemonicParsing="false" prefHeight="43.0" prefWidth="174.0" styleClass="action-choisir-terrain" text="Clair" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="action-choisir-theme3" fx:id="actionChoisirFondVillage" mnemonicParsing="false" prefHeight="43.0" prefWidth="165.0" styleClass="action-choisir-terrain" text="Perso1" textFill="WHITE" />
+                  <Button id="action-choisir-theme4" fx:id="actionChoisirFondGrotte" mnemonicParsing="false" prefHeight="43.0" prefWidth="166.0" styleClass="action-choisir-terrain" stylesheets="@decoration/jardinator.css" text="Perso2" textFill="WHITE" />
+               	 
+               </children>
+            </HBox>
+
+         
+          
+         
+       
+         </children>
+      </AnchorPane>
+      <Pane id="entete" layoutX="-57.0" layoutY="-7.0" prefHeight="92.0" prefWidth="1352.0" AnchorPane.leftAnchor="-57.0" AnchorPane.rightAnchor="-1.0">
+         <children>
+            <Label layoutX="533.0" layoutY="1.0" prefHeight="103.0" prefWidth="452.0" text="Carteditor" textFill="#fff7f7">
+               <font>
+                  <Font name="Berlin Sans FB" size="70.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="30.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@decoration/icone-liste.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow color="#7c7979" height="50.0" radius="24.5" width="50.0" />
+         </effect>
+      </Pane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</AnchorPane>
