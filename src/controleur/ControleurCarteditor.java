@@ -47,6 +47,9 @@ public class ControleurCarteditor extends Controleur {
     	
     	CommandeInsererEmoticon commande2 = new CommandeInsererEmoticon(emoticonChoisi, x, y, carteDeSouhait);
     	commande2.executer();
+    	
+    	historique.add(commande);
+    	historique.add(commande2);
            
  
 
@@ -113,6 +116,14 @@ public class ControleurCarteditor extends Controleur {
 		}
 		
 		
+		
+	}
+
+	public void notifierActionRedo() {
+		/*if (!historique.isEmpty()) {
+			historique.pop().refaire();
+			
+		}*/
 		
 	}
 

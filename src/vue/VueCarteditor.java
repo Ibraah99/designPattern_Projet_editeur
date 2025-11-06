@@ -1,4 +1,5 @@
 package vue;
+import java.util.HashMap;
 import java.util.Hashtable;
 
 import com.sun.media.jfxmedia.logging.Logger;
@@ -135,16 +136,28 @@ public class VueCarteditor extends Vue {
 				
 				
 			}});
+        
+		Button actionUndo = (Button) lookup("#action-undo");
+		actionUndo.setOnAction(new EventHandler<ActionEvent>() {
 
-
-       /* public void handle(ActionEvent e) {
-	    	 
-	    	TextArea texteAffichage = (TextArea) lookup("#action-modifier-texte");
-	    	
+			@Override
+			public void handle(ActionEvent e) {
+				controleur.notifierActionUndo();
 				
-				
-			}});*/
+			}});
+		
+		
+		Button actionRedo = (Button) lookup("#action-redo");
+		actionRedo.setOnAction(new EventHandler<ActionEvent>() {
 
+			@Override
+			public void handle(ActionEvent e) {
+				controleur.notifierActionRedo();
+				
+			}});
+
+
+    
 		
 		
 		
@@ -273,14 +286,7 @@ public class VueCarteditor extends Vue {
 				
 			}});
 		
-		Button actionUndo = (Button) lookup("#action-undo");
-		actionUndo.setOnAction(new EventHandler<ActionEvent>() {
 
-			@Override
-			public void handle(ActionEvent e) {
-				controleur.notifierActionUndo();
-				
-			}});
 
 
 		
@@ -307,6 +313,7 @@ public class VueCarteditor extends Vue {
 		itemInsere.setY(y-15);
 		AnchorPane carteVue = (AnchorPane) lookup("#carte-contour");
 		carteVue.getChildren().add(itemInsere);
+		atLastVisuelItem.put(x + "-" + y, itemInsere);
 	}
 	
 	public void afficherEmoticon(EMOTICON emoticonChoisi, double x, double y) {
@@ -318,6 +325,7 @@ public class VueCarteditor extends Vue {
 		emoticonInsere.setY(y-15);
 		AnchorPane carteVue = (AnchorPane) lookup("#carte-contour");
 		carteVue.getChildren().add(emoticonInsere);
+		atLastVisuelEmoticon.put(x + "-" + y, emoticonInsere);
 	}
 
 	public void afficherTheme(THEME themeChoisi) {
@@ -325,6 +333,25 @@ public class VueCarteditor extends Vue {
 		AnchorPane espaceTravail = (AnchorPane)lookup("#espace-travail");
 		String imgPath = imagesTheme.get(themeChoisi);
 		espaceTravail.setStyle("-fx-background-image:url('" + "vue/decoration/theme/" + imgPath + "')");
+		
+	}
+	protected HashMap<String, ImageView> atLastVisuelItem = new HashMap<String, ImageView>();
+	public void supprimerItem(ELEMENT itemChoisi, double x, double y) {
+		ImageView itemSupprime = atLastVisuelItem.get(x + "-" + y);
+		AnchorPane carteVue = (AnchorPane) lookup("#carte-contour");
+		carteVue.getChildren().remove(itemSupprime);
+		System.out.println("REMOVED: "+itemSupprime);
+		
+		
+		
+	}
+	
+	protected HashMap<String, ImageView> atLastVisuelEmoticon= new HashMap<String, ImageView>();
+	public void supprimerEmoticon(EMOTICON emoticonChoisi, double x, double y) {
+		ImageView emoticonSupprime = atLastVisuelEmoticon.get(x + "-" + y);
+		AnchorPane carteVue = (AnchorPane) lookup("#carte-contour");
+		carteVue.getChildren().remove(emoticonSupprime);
+		System.out.println("REMOVED: "+emoticonSupprime);
 		
 	}
 
