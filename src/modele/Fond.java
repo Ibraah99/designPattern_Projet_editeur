@@ -4,8 +4,10 @@ import donnee.Exportable;
 
 public class Fond implements Exportable{
 	
-	public enum FOND{FOND1,FOND2,FOND3,FOND4}
+	public enum FOND{FOND1,FOND2,FOND3,FOND4,VIDE}
 	protected FOND fond;
+	
+
 
 	
 	public Fond(FOND fondChoisi) {

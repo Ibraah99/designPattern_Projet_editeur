@@ -272,6 +272,15 @@ public class VueCarteditor extends Vue {
 				controleur.notifierClicCarte(x, y);
 				
 			}});
+		
+		Button actionUndo = (Button) lookup("#action-undo");
+		actionUndo.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				controleur.notifierActionUndo();
+				
+			}});
 
 
 		

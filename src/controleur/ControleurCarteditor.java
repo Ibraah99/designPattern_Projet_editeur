@@ -1,6 +1,9 @@
 package controleur;
+import java.util.Stack;
+
 import com.sun.media.jfxmedia.logging.Logger;
 import architecture.Controleur;
+import controleur.commande.Commande;
 import controleur.commande.CommandeChangerFond;
 import controleur.commande.CommandeInsererElement;
 import controleur.commande.CommandeInsererEmoticon;
@@ -34,6 +37,8 @@ public class ControleurCarteditor extends Controleur {
     public void initialiser() {
     	
     }
+    
+   protected Stack<Commande> historique = new Stack<Commande>();
 
     public void notifierClicCarte(double x, double y) {
     	
@@ -71,6 +76,8 @@ public class ControleurCarteditor extends Controleur {
     	
     	CommandeChangerFond commande = new CommandeChangerFond(fondChoisi, carteDeSouhait);
     	commande.executer();
+    	
+    	historique.add(commande);
 
     	
  
@@ -96,6 +103,17 @@ public class ControleurCarteditor extends Controleur {
 	    System.out.println("Saisie enregistrée : " + texte +  "; de couleur : " + couleurHex);
 	    carteDeSouhait.setSaisie(new Saisie(texte));
 	    carteDeSouhait.setCouleurHex(couleurHex);
+	}
+
+	public void notifierActionUndo() {
+		
+		if (!historique.isEmpty()) {
+			historique.pop().annuler();
+			
+		}
+		
+		
+		
 	}
 
 

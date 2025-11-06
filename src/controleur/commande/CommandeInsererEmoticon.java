@@ -23,9 +23,16 @@ public class CommandeInsererEmoticon extends Commande {
 	public void executer() {
 		
 		 if (emoticonChoisi != null) {
+			    carteDeSouhait.ajouterEmoticon(new Emoticon(emoticonChoisi, x, y));
 	            VueCarteditor.getInstance().afficherEmoticon(emoticonChoisi, x, y);
-	            carteDeSouhait.ajouterEmoticon(new Emoticon(emoticonChoisi, x, y));
+	            
 	        }
+		
+	}
+
+	@Override
+	public void annuler() {
+		// TODO Auto-generated method stub
 		
 	}
 

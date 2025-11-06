@@ -22,9 +22,16 @@ public class CommandeInsererElement extends Commande{
 	@Override
 	public void executer() {
 		if (itemChoisi != null) {
+			  carteDeSouhait.ajouterElement(new Decoration(itemChoisi, x, y));  
 		      VueCarteditor.getInstance().afficherItem(itemChoisi, x, y);
-		      carteDeSouhait.ajouterElement(new Decoration(itemChoisi, x, y));       
+		           
 		}
+	}
+
+	@Override
+	public void annuler() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

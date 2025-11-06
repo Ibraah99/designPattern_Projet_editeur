@@ -9,6 +9,7 @@ public class CommandeChangerFond extends Commande  {
 	
 	protected FOND fondChoisi ;
 	protected CarteDeSouhait carteDeSouhait;
+	protected FOND ancienFond;
 	
 	public CommandeChangerFond(FOND fond, CarteDeSouhait carte) {
 		this.fondChoisi = fond;
@@ -17,9 +18,18 @@ public class CommandeChangerFond extends Commande  {
 
 	@Override
 	public void executer() {
-		//appel
-	       VueCarteditor.getInstance().afficherFond(fondChoisi);
-	        carteDeSouhait.setFond(new Fond(fondChoisi));		
+		
+		this.ancienFond = carteDeSouhait.getFond().getFond();
+		 carteDeSouhait.setFond(new Fond(fondChoisi));	
+	     VueCarteditor.getInstance().afficherFond(fondChoisi);
+	       	
+	}
+
+	@Override
+	public void annuler() {
+		VueCarteditor.getInstance().afficherFond(ancienFond);
+		this.carteDeSouhait.setFond(new Fond(ancienFond));
+		
 	}
 
 }

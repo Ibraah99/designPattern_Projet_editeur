@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import donnee.Exportable;
+import modele.Fond.FOND;
 
 public class CarteDeSouhait implements Exportable {
 	
 	protected List<Decoration> elements = new ArrayList<Decoration>();
-	protected Fond fond;
+	//protected FOND fond;
+	protected Fond fond  ;
 	protected List<Emoticon> emoticons = new ArrayList<Emoticon>();
 	protected Saisie saisie;
 	protected String couleurHex = "#000000";
@@ -16,6 +18,11 @@ public class CarteDeSouhait implements Exportable {
 
 	
 	
+	public Fond getFond() {
+	    if(fond == null) fond = new Fond(FOND.VIDE);
+	    return fond;
+			
+	}
 	public void ajouterElement(Decoration element)
 	{
 		this.elements.add(element);
@@ -88,6 +95,7 @@ public String exporterXML() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	
 
 }
