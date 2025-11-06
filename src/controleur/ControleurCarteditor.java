@@ -107,23 +107,31 @@ public class ControleurCarteditor extends Controleur {
 	    carteDeSouhait.setSaisie(new Saisie(texte));
 	    carteDeSouhait.setCouleurHex(couleurHex);
 	}
+	   protected Stack<Commande> annulations = new Stack<Commande>();
 
 	public void notifierActionUndo() {
 		
 		if (!historique.isEmpty()) {
-			historique.pop().annuler();
+			
+			Commande commande = historique.pop();
+			commande.annuler();
+			annulations.add(commande);
 			
 		}
 		
 		
 		
 	}
+	   
+
 
 	public void notifierActionRedo() {
-		/*if (!historique.isEmpty()) {
-			historique.pop().refaire();
+		if (!annulations.isEmpty()) {
+			Commande commande = annulations.pop();
+			commande.executer();
+			historique.add(commande);
 			
-		}*/
+		}
 		
 	}
 

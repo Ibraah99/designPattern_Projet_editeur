@@ -43,10 +43,6 @@ public class CommandeInsererEmoticon extends Commande {
 		
 	}
 
-	@Override
-	public void refaire() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

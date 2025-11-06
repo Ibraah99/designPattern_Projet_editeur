@@ -38,10 +38,6 @@ public class CommandeInsererElement extends Commande{
 		
 	}
 
-	@Override
-	public void refaire() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

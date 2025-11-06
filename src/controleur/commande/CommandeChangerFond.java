@@ -33,10 +33,7 @@ public class CommandeChangerFond extends Commande  {
 		
 	}
 
-	@Override
-	public void refaire() {
-	    VueCarteditor.getInstance().afficherFond(fondChoisi);
-	    carteDeSouhait.setFond(new Fond(fondChoisi));
-	}
+	
+	
 
 }
